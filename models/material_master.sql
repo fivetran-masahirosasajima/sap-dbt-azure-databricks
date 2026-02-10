@@ -4,7 +4,6 @@
 
 WITH 
 -- 1. Base Tables with Soft Delete Filtering
--- 各テーブルから削除されていないレコードのみを抽出します
 mara_active AS (
     SELECT * FROM {{ source('sap_erp', 'mara') }}
     WHERE (_fivetran_deleted IS NULL OR _fivetran_deleted = false)
