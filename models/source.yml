@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: sap_erp
+    database: ts-azure-catalog-demo  # Databricksのカタログ名
+    schema: ts-azure-catalog-demo.sap_hana_db_saphanadb           # Fivetranがロードしたスキーマ名
+    tables:
+      - name: mara
+      - name: makt
+      - name: marc
+      - name: mard

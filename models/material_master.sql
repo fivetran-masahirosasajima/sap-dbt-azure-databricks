@@ -6,22 +6,22 @@ WITH
 -- 1. Base Tables with Soft Delete Filtering
 -- 各テーブルから削除されていないレコードのみを抽出します
 mara_active AS (
-    SELECT * FROM mara 
+    SELECT * FROM {{ source('sap_erp', 'mara') }}
     WHERE (_fivetran_deleted IS NULL OR _fivetran_deleted = false)
 ),
 
 makt_active AS (
-    SELECT * FROM makt 
+    SELECT * FROM {{ source('sap_erp', 'makt') }} 
     WHERE (_fivetran_deleted IS NULL OR _fivetran_deleted = false)
 ),
 
 marc_active AS (
-    SELECT * FROM marc 
+    SELECT * FROM {{ source('sap_erp', 'marc') }} 
     WHERE (_fivetran_deleted IS NULL OR _fivetran_deleted = false)
 ),
 
 mard_active AS (
-    SELECT * FROM mard 
+    SELECT * FROM {{ source('sap_erp', 'mard') }} 
     WHERE (_fivetran_deleted IS NULL OR _fivetran_deleted = false)
 ),
 
